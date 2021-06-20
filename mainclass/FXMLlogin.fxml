@@ -33,7 +33,7 @@
                         <Font size="18.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="fxdosen" layoutX="187.0" layoutY="194.0" mnemonicParsing="false" text="Dosen" textFill="WHITE">
+                  <RadioButton fx:id="fxdosen" layoutX="187.0" layoutY="199.0" mnemonicParsing="false" text="Dosen" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
