@@ -42,7 +42,7 @@ public class loginControllerlogin {
         stage.setScene(scene);
         stage.show();
         } else if (fxtu.isSelected()) {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLlogintu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLlogintatausaha.fxml"));
         stage = (Stage) ((Node) actionevent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
