@@ -8,11 +8,9 @@ package mainclass;
 import conecctor.databasemahasiswa;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -20,7 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import static javax.swing.UIManager.getString;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,11 +29,11 @@ public class loginControllermahasiswa {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
+    
     public TextField username;
     public TextField password;
 
-  public void login(ActionEvent actionevent) throws IOException, SQLException {
+    public void login(ActionEvent actionevent) throws IOException, SQLException {
         databasemahasiswa dbmahasiswa = new databasemahasiswa();
         Connection connection = databasemahasiswa.getConnection();
         String query = "SELECT * FROM user where Username=? and Password=?";
@@ -43,10 +41,9 @@ public class loginControllermahasiswa {
         pst.setString(1, username.getText());
         pst.setString(2, password.getText());
         ResultSet rs = pst.executeQuery();
-
+        
         if(rs.next()){
-            JOptionPane.showMessageDialog(null, "username dan Password benar");
-            Parent root = FXMLLoader.load(getClass().getResource(".fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLdashmahasiswa.fxml"));
             stage = (Stage) ((Node) actionevent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
