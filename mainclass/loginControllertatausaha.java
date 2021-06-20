@@ -5,7 +5,6 @@
  */
 package mainclass;
 
-import conecctor.databasemahasiswa;
 import conecctor.databasetatausaha;
 import java.io.IOException;
 import java.sql.Connection;
