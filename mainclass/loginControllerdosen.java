@@ -5,19 +5,20 @@
  */
 package mainclass;
 
-import biodatapkn.*;
+import conecctor.databasedosen;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,7 +31,7 @@ public class loginControllerdosen{
     
     public TextField username;
     public TextField password;
-        
+    
     public void login(ActionEvent actionevent) throws IOException, SQLException {
     databasedosen dbdosen = new databasedosen();
         Connection connection = databasedosen.getConnection();
@@ -39,7 +40,7 @@ public class loginControllerdosen{
         pst.setString(1, username.getText());
         pst.setString(2, password.getText());
         ResultSet rs = pst.executeQuery();
-
+        
         if(rs.next()){
             JOptionPane.showMessageDialog(null, "username dan Password benar");
             Parent root = FXMLLoader.load(getClass().getResource(".fxml"));
@@ -58,7 +59,6 @@ public class loginControllerdosen{
             stage.show();
         }
     }
-    
      public void back(ActionEvent actionevent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLlogin.fxml"));
         stage = (Stage) ((Node) actionevent.getSource()).getScene().getWindow();
@@ -67,4 +67,5 @@ public class loginControllerdosen{
         stage.show();
     }
     
+
 }
