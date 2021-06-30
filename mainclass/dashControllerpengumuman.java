@@ -39,20 +39,18 @@ public class dashControllerpengumuman {
     public TextField tempatpkn;
     public TextField waktupelaksanaan;
     public TextField dosenpembimbing;   
+    public TextField pencarian_nama; 
     public Label pengumuman;
 
     private Stage stage;
     private Scene scene;
     private Parent root;
     
-    pesan setget = new pesan();
 
    public void refresh(ActionEvent actionevent) throws SQLException {
-            pengumuman.setText(setget.toString());
-            
             databaseuploadmahasiswa connect = new databaseuploadmahasiswa();
             Connection conn = databaseuploadmahasiswa.getConnection();
-            String query = "select * from user where Judul = 'TUBES PBO' ";
+            String query = "select * from user where Judul = '"+pencarian_nama.getText()+"' ";
             Statement st;
             ResultSet rs;
         try {
@@ -85,6 +83,15 @@ public class dashControllerpengumuman {
         stage.setScene(scene);
         stage.show();
    }
+   
+    public void email(ActionEvent actionevent) throws SQLException, IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLdashmahasiswaa.fxml"));
+        stage = (Stage) ((Node) actionevent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+   }
+    
     public void back(ActionEvent actionevent) throws SQLException, IOException {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLdashmahasiswaa.fxml"));
         stage = (Stage) ((Node) actionevent.getSource()).getScene().getWindow();
