@@ -6,6 +6,8 @@
 package mainclass;
 
 import conecctor.databaseuploadmahasiswa;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -18,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -39,19 +42,20 @@ public class dashControllerpengajuanberkas {
     public TextField tempatpkn;
     public TextField waktupelaksanaan;
     public TextField dosenpembimbing;   
-    public Label pengumuman;
+    public TextField pencarian_nama; 
+    
+    private Label data;
 
     private Stage stage;
     private Scene scene;
     private Parent root;
     
-   
+   File selectedFile;
 
    public void refresh(ActionEvent actionevent) throws SQLException {
-          
             databaseuploadmahasiswa connect = new databaseuploadmahasiswa();
             Connection conn = databaseuploadmahasiswa.getConnection();
-            String query = "select * from user where Judul = 'TUBES PBO' ";
+            String query = "select * from user where Judul = '"+pencarian_nama.getText()+"' ";
             Statement st;
             ResultSet rs;
         try {
@@ -77,6 +81,20 @@ public class dashControllerpengajuanberkas {
         }
     }
    
+    public void uploadsuratpengantar(ActionEvent actionevent) throws IOException, FileNotFoundException {
+        FileChooser fc = new FileChooser();
+        fc.setInitialDirectory(new File("C:\\"));
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
+
+        selectedFile = fc.showOpenDialog(null);
+        if (selectedFile != null) {
+            data.setText(selectedFile.getAbsolutePath());
+        } else {
+            System.out.println("file is not valid");
+        }
+    }
+   
+    
    public void upload(ActionEvent actionevent) throws SQLException, IOException {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLdikirim3.fxml"));
         stage = (Stage) ((Node) actionevent.getSource()).getScene().getWindow();
