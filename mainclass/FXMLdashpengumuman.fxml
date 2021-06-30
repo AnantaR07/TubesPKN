@@ -51,6 +51,7 @@
             </Label>
             <Text fill="WHITE" layoutX="8.0" layoutY="623.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Tekan Kirim untuk mengirim formulir pendaftaran PKN " wrappingWidth="465.02655029296875" />
             <Text fill="WHITE" layoutX="15.0" layoutY="637.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ke Gedung Tata Usaha." wrappingWidth="281.69317626953125" />
+            <TextField fx:id="pencarian_nama" layoutX="200.0" layoutY="11.0" prefHeight="25.0" prefWidth="208.0" promptText="Masukkan Nama Peserta PKN" />
          </children>
       </AnchorPane>
    </center>
