@@ -58,11 +58,17 @@ public class dashControlleruploadmahasiswa {
 
         Statement statement = connection.createStatement();
         statement.executeUpdate(sql1);
+        
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLdikirim2.fxml"));
+        stage = (Stage) ((Node) actionevent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
     }
 
     public void back(ActionEvent actionevent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLdikirim2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLdashmahasiswaa.fxml"));
         stage = (Stage) ((Node) actionevent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
