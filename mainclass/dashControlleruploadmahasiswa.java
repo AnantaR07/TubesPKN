@@ -36,7 +36,7 @@ public class dashControlleruploadmahasiswa {
     public TextField judul;
     public TextField tempatpkn;
     public TextField waktupelaksanaan;
-    public TextField dosenpembimbing;                                                                                              
+    public TextField dosenpembimbing;
 
     private Stage stage;
     private Scene scene;
@@ -58,7 +58,7 @@ public class dashControlleruploadmahasiswa {
 
         Statement statement = connection.createStatement();
         statement.executeUpdate(sql1);
-        
+
         Parent root = FXMLLoader.load(getClass().getResource("FXMLdikirim2.fxml"));
         stage = (Stage) ((Node) actionevent.getSource()).getScene().getWindow();
         scene = new Scene(root);
