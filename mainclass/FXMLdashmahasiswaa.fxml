@@ -51,6 +51,16 @@
                   <Font size="18.0" />
                </font>
             </Button>
+            <Button layoutX="444.0" layoutY="381.0" mnemonicParsing="false" onAction="#draftlaporanpknadmin" prefHeight="46.0" prefWidth="228.0" style="-fx-background-color: white; -fx-border-color: a12927;" text="Draft Laporan PKN Admin" textFill="#a12927">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="444.0" layoutY="326.0" mnemonicParsing="false" onAction="#draftlaporanpkn" prefHeight="46.0" prefWidth="228.0" style="-fx-background-color: white; -fx-border-color: a12927;" text="Draft Laporan PKN Dosen" textFill="#a12927">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </center>
